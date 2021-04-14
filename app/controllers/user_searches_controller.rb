@@ -8,6 +8,7 @@ class UserSearchesController < ApplicationController
   require 'json'
 
   def index
+
     uri = URI.parse("https://api.github.com/search/repositories?q=user:#{params[:query]}&sort=updated")
 
     request = Net::HTTP::Get.new(uri)
@@ -49,9 +50,10 @@ class UserSearchesController < ApplicationController
         config.access_token_secret = "#{Rails.application.credentials.twitter_access_token_secret}"
       end
     end
+
     if response.code == '404'
 
-      client.update("user github: #{params[:query]}"+" add star to repository: #{params[:repository]}")
+      client.update("user github: #{current_user.nickname}"+" add star to repository: #{params[:repository]}")
 
       uri_star = URI.parse("https://api.github.com/user/starred/#{params[:query]}/#{params[:repository]}?access_token=#{Rails.application.credentials.access_token}")
 
