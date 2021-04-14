@@ -16,7 +16,6 @@
             <th scope="col-12"><h5 class="text-center">updated at</h5></th>
             <th scope="col-12"><h5 class="text-center"> Star </h5></th>
             <th scope="col-12"><h5 class="text-center"> Unstar </h5></th>
-            <th scope="col-12"><h5 class="text-center"> Like </h5></th>
           </tr>
         </thead>
         <tbody>
@@ -60,15 +59,6 @@
                     ) do
                   %>
                       <%= fa_icon "minus", class: "text-success fa-2x" %>
-                  <% end %>
-                </div>
-              </td>
-              <td class="text-center">
-                <div class="col-12 text-center">
-                  <% if !Repository.where(repo_id: repo['id'], star:true, user_id:current_user.id).blank? %>
-                    <%= fa_icon "star", class: "text-warning fa-2x" %>
-                  <% else %>
-                   <%= fa_icon "star", class: "text-secondary fa-2x" %>
                   <% end %>
                 </div>
               </td>
