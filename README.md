@@ -37,17 +37,17 @@ Things you may want to cover:
   6. rails db:migrate
 
 * Configuration encripted keys
-      - Open the encripted -> EDITOR=vi bin/rails credentials:edit
-      - GITHUB- More information -> https://docs.github.com/es/developers/apps/authenticating-with-github-apps
-        - app_id:
-        - app_scret:
-        - username_github:
-        - authorization_github:
-        - access_token:
-      - TWITTER- More information -> https://developer.twitter.com/en/portal/projects-and-apps
-        - twitter_consumer_key:
-        - twitter_consumer_secret:
-        - twitter_access_token:
-        - twitter_access_token_secret:
+  1. Open the encripted -> EDITOR=vi bin/rails credentials:edit
+  2. GITHUB- More information -> https://docs.github.com/es/developers/apps/authenticating-with-github-apps
+    - app_id:
+    - app_scret:
+    - username_github:
+    - authorization_github:
+    - access_token:
+  3. TWITTER- More information -> https://developer.twitter.com/en/portal/projects-and-apps
+    - twitter_consumer_key:
+    - twitter_consumer_secret:
+    - twitter_access_token:
+    - twitter_access_token_secret:
 
 * ...
