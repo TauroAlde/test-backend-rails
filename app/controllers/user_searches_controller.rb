@@ -8,7 +8,7 @@ class UserSearchesController < ApplicationController
   require 'json'
 
   def index
-    uri = URI.parse("https://api.github.com/search/repositories?q=user:#{params[:query]}&sort=updated+&sort=updated")
+    uri = URI.parse("https://api.github.com/search/repositories?q=user:#{params[:query]}&sort=updated")
 
     request = Net::HTTP::Get.new(uri)
     request.basic_auth(Rails.application.credentials.username_github, Rails.application.credentials.authorization_github)
