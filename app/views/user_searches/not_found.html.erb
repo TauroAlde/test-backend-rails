@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h3>Serach user from github</h3>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <% @repositories['errors'].each do |error| %>
+        <%= error['message'] %>
+      <%end%>
+    </div>
+    <div class="col-12 text-center mt-5">
+      <a href="/" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+    </div>
+  </div>
+</div>
