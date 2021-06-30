@@ -26,6 +26,10 @@ gem "devise", github: "heartcombo/devise", branch: "master"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+#deive with jwt
+gem 'devise-jwt', '~> 0.7.0'
+
+gem 'rack-cors'
 
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 # Reduces boot times through caching; required in config/boot.rb
