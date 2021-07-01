@@ -272,7 +272,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :github, Rails.application.credentials.app_id, Rails.application.credentials.app_scret
+  config.omniauth :github, Rails.application.credentials.app_id, Rails.application.credentials.app_scret, scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -309,9 +309,9 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  # 43a411e6a464f89e33898aa93b50c7e00262f12c4f39bce06db6a1558bd1483d9e7373d68aa7d6ae47b9934dd4c43e5930235e6108ed183cc50c16e520b3e09c
+  # 43a411e6a464f89e33898aa93b50c7e00262f12c4f39bce06db6a1558bd1483d9e7373d68aa7d6ae47b9934dd4c43e5930235e6108ed183cc50c16e520b3e09c ENV['DEVISE_JWT_SECRET_KEY']
   config.jwt do |jwt|
-    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.secret = '43a411e6a464f89e33898aa93b50c7e00262f12c4f39bce06db6a1558bd1483d9e7373d68aa7d6ae47b9934dd4c43e5930235e6108ed183cc50c16e520b3e09c'
         jwt.dispatch_requests = [
         ['POST', %r{^/api/login$}]
       ]
