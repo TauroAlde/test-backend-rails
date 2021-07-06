@@ -52,6 +52,8 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   gem 'faker'
+  # se agrego la gema ya que me da mas ayuda con las pruebas ejemplo render_template
+  gem 'rails-controller-testing'
 end
 
 group :development do
