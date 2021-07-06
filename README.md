@@ -54,11 +54,13 @@ Things you may want to cover:
   - We need install in terminal or console these commands
     1. Create the network for the local machine
       - docker network create local-net
-    2. Configurate the postgres database
+    2. Install yarn
+      - docker exec test-backend-rails_web_1 yarn install
+    3. Configurate the postgres database
       - docker exec test-backend-rails_db_1 psql -U postgres -c "CREATE ROLE samaya WITH SUPERUSER LOGIN; "
       - docker exec test-backend-rails_db_1 psql -U postgres -c "ALTER USER samaya WITH PASSWORD 'samaya'; "
       - docker exec test-backend-rails_db_1 psql -U postgres -c "CREATE DATABASE samaya; "
-    3. Generate the migrations for rails
+    4. Generate the migrations for rails
       - docker exec test-backend-rails_web_1 rails db:migrate
 
 * ...

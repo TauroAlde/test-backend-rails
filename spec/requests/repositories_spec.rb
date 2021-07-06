@@ -19,6 +19,9 @@ RSpec.describe "Repositories", type: :request do
       get root_path
       expect(response).to render_template("repositories/index")
     end
+    it "display title " do
+      get root_path
+    end
   end
 
   context "user with out session"do
