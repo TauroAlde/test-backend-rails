@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-*
 
+# Ignore VCR cassettes
+/spec/support/vcr_cassettes
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
