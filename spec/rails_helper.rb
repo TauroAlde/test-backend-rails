@@ -36,6 +36,8 @@ end
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/support/vcr_cassettes'
   c.hook_into :webmock
+  #configuramos que solo use VCR cuando tenga cassette
+  c.allow_http_connections_when_no_cassette = true
 end
 
 # OmniAuth.config.test_mode = true
@@ -79,5 +81,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
-  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :request 
 end
