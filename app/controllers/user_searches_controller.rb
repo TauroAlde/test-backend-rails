@@ -44,16 +44,6 @@ class UserSearchesController < ApplicationController
       http.request(request)
     end
 
-    
-    def client
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = Rails.application.credentials.twitter_consumer_key
-        config.consumer_secret     = Rails.application.credentials.twitter_consumer_secret
-        config.access_token        = Rails.application.credentials.twitter_access_token
-        config.access_token_secret = Rails.application.credentials.twitter_access_token_secret
-      end
-    end
-
     if response.code == '404'
 
       client.update("user github: #{current_user.nickname}"+" add star to repository: #{params[:repository]}")
@@ -82,6 +72,7 @@ class UserSearchesController < ApplicationController
     end
 
   end
+
 
   def update
 
@@ -122,7 +113,18 @@ class UserSearchesController < ApplicationController
   end
 
   private
-    def repository_params
-      params.require(:repository).permit(:repo_id)
+
+
+  def repository_params
+    params.require(:repository).permit(:repo_id)
+  end
+
+  def client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = Rails.application.credentials.twitter_consumer_key
+      config.consumer_secret     = Rails.application.credentials.twitter_consumer_secret
+      config.access_token        = Rails.application.credentials.twitter_access_token
+      config.access_token_secret = Rails.application.credentials.twitter_access_token_secret
     end
+  end
 end
