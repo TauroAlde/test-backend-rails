@@ -21,8 +21,10 @@ RSpec.describe "Repositories", type: :request do
     end
     it "display title " do
       get root_path
+      expect(response.body).to match(/TestBackend/)
     end
   end
+  
 
   context "user with out session"do
     it "responds with status 302" do
