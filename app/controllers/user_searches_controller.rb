@@ -22,7 +22,10 @@ class UserSearchesController < ApplicationController
       http.request(request)
     end
 
-    
+    if response.code == '422'
+      @repositories = ActiveSupport::JSON.decode(response.body)
+      render :not_found
+    end
     @repositories = ActiveSupport::JSON.decode(response.body)
 
   end
@@ -44,10 +47,10 @@ class UserSearchesController < ApplicationController
     
     def client
       Twitter::REST::Client.new do |config|
-        config.consumer_key        = "#{Rails.application.credentials.twitter_consumer_key}"
-        config.consumer_secret     = "#{Rails.application.credentials.twitter_consumer_secret}"
-        config.access_token        = "#{Rails.application.credentials.twitter_access_token}"
-        config.access_token_secret = "#{Rails.application.credentials.twitter_access_token_secret}"
+        config.consumer_key        = Rails.application.credentials.twitter_consumer_key
+        config.consumer_secret     = Rails.application.credentials.twitter_consumer_secret
+        config.access_token        = Rails.application.credentials.twitter_access_token
+        config.access_token_secret = Rails.application.credentials.twitter_access_token_secret
       end
     end
 

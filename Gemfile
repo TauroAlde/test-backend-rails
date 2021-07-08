@@ -33,6 +33,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'pry', '~> 0.13.1'
 
+gem 'pry-byebug'
+
 gem 'bootstrap', '~> 5.0.0.beta2'
 
 gem "font-awesome-rails"
@@ -40,6 +42,18 @@ gem "font-awesome-rails"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'vcr'
+
+  gem 'rspec-rails'
+
+  gem "webmock"
+
+  gem 'factory_bot_rails'
+
+  gem 'faker'
+  # se agrego la gema ya que me da mas ayuda con las pruebas ejemplo render_template
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -59,6 +73,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
