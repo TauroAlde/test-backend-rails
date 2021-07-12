@@ -26,8 +26,11 @@ gem "devise", github: "heartcombo/devise", branch: "master"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-#deive with jwt
-gem 'devise-jwt', '~> 0.7.0'
+
+# Use Json Web Token (JWT) for token based authentication
+gem 'jwt'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'rack-cors'
 
