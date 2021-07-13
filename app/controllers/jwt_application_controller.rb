@@ -8,7 +8,6 @@ class JwtApplicationController < ActionController::Base
   end
 
   def authorize_request
-    binding.pry
     header = request.headers['Authorization']
     header = header.split(' ').last if header
     begin
