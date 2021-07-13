@@ -2,7 +2,7 @@ class AuthenticationsController < JwtApplicationController
   before_action :authorize_request, except: :create
   before_action :find_user, except: %i[create]
   
-  # POST 
+  # ruta POST 
   def create
     @user_jwt = UserJwt.find_by_email(params[:email])
     if @user_jwt&.authenticate(params[:password])
