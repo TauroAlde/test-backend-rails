@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_223408) do
+ActiveRecord::Schema.define(version: 2021_07_13_003229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
 
   create_table "repositories", force: :cascade do |t|
     t.boolean "star"
@@ -22,6 +28,16 @@ ActiveRecord::Schema.define(version: 2021_04_09_223408) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_repositories_on_user_id"
+  end
+
+  # se creo otro modelo por el error de password_digest choca con la libreria devise
+  create_table "user_jwts", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

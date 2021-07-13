@@ -27,6 +27,13 @@ gem "devise", github: "heartcombo/devise", branch: "master"
 # gem 'image_processing', '~> 1.2'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
+# Use Json Web Token (JWT) for token based authentication
+gem 'jwt'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'rack-cors'
+
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
